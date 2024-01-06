@@ -20,6 +20,8 @@ RUN cat /pwiz/build-linux-x86_64/BiblioSpec/VERSION
 FROM alpine
 LABEL maintainer = "Michael Riffle <mriffle@uw.edu>"
 
+RUN apk add --no-cache bash
+
 COPY --from=builder /pwiz/build-linux-x86_64/gcc-release-x86_64/* /usr/local/bin/
 ADD entrypoint.sh /usr/local/bin/entrypoint.sh
 

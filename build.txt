@@ -1,0 +1,6 @@
+sudo docker image build -t mriffle/bibliospec-linux:latest -t mriffle/bibliospec-linux:3.0 -t quay.io/protio/bibliospec-linux:latest -t quay.io/protio/bibliospec-linux:3.0 . --progress=plain
+
+sudo docker push mriffle/bibliospec-linux:latest
+sudo docker push mriffle/bibliospec-linux:3.0
+sudo docker push quay.io/protio/bibliospec-linux:latest
+sudo docker push quay.io/protio/bibliospec-linux:3.0

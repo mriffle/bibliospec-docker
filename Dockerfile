@@ -17,10 +17,8 @@ RUN ./quickbuild.sh -j$(($(nproc) - 1)) --hash optimization=space address-model=
 RUN cat /pwiz/build-linux-x86_64/BiblioSpec/VERSION
 
 # add in the built files, create final image
-FROM alpine
+FROM ubuntu:18.04
 LABEL maintainer = "Michael Riffle <mriffle@uw.edu>"
-
-RUN apk add --no-cache bash
 
 COPY --from=builder /pwiz/build-linux-x86_64/gcc-release-x86_64/* /usr/local/bin/
 ADD entrypoint.sh /usr/local/bin/entrypoint.sh

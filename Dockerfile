@@ -12,9 +12,7 @@ RUN git clone https://github.com/ProteoWizard/pwiz.git
 
 WORKDIR /pwiz
 
-RUN echo $(nproc)
 RUN ./quickbuild.sh -j$(($(nproc) - 1)) --hash optimization=space address-model=64 pwiz_tools/BiblioSpec >build.log
-RUN cat /pwiz/build-linux-x86_64/BiblioSpec/VERSION
 
 # add in the built files, create final image
 FROM ubuntu:18.04
